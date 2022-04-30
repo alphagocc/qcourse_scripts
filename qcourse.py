@@ -28,7 +28,7 @@ if not COURSE_DIR.exists():
 class QCourse:
     def __init__(self):
         self.p = sync_playwright().start()
-        self.browser = self.p.chromium.launch(channel='msedge', headless=False)
+        self.browser = self.p.chromium.launch(headless=False)
         self.context = self.browser.new_context()
 
     def login(self):
