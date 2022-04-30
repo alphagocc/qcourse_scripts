@@ -143,7 +143,7 @@ def ts2mp4(file):
     basename = file.name.split('.ts')[0]
     file_dir = file.parent
     output = file_dir.joinpath(basename)
-    cmd = str(ffmpeg) + ' -i "' + str(file) + '" -c copy "' + str(output) + '".mp4'
+    cmd = str(ffmpeg) + ' -i "' + str(file) + '" -c:v copy -c:a copy"' + str(output) + '".mp4'
     # 这个命令会报错，但是我不熟悉ffmpeg，而且似乎输出视频没有毛病，所以屏蔽了错误输出
     run_shell(cmd, retry_times=False)
     file.unlink()
